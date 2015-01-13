@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<extension type="package" version="3.3" method="upgrade">
+	<name>pkg_help</name>
+	<packagename>help</packagename>
+	<creationDate>2015-01-13</creationDate>
+	<copyright>(C) 2009 - 2014 Davenport Technology Services, (C) 2015 Open Source Matters, Inc. All rights reserved.</copyright>
+	<packager>Joomla!</packager>
+	<packageremail>admin@joomla.org</packageremail>
+	<packagerurl>http://www.joomla.org</packagerurl>
+	<author>Joomla!</author>
+	<authorEmail>admin@joomla.org</authorEmail>
+	<authorUrl>http://www.joomla.org</authorUrl>
+	<version>2.0.0</version>
+	<license>GNU/GPL Version 2 or later</license>
+	<description>Package containing the help proxy extensions</description>
+	<files folder="packages">
+		<!-- The id for each extension is the element stored in the DB -->
+		<file type="component" id="com_help">com_help.zip</file>
+		<file type="template" id="help" client="site">tpl_help.zip</file>
+	</files>
+	<!-- <languages folder="language">
+		<language tag="en-GB">en-GB/en-GB.pkg_help.ini</language>
+		<language tag="en-GB">en-GB/en-GB.pkg_help.sys.ini</language>
+	</languages> -->
+</extension>

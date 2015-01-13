@@ -1,0 +1,7 @@
+# Packages #
+*.zip
+
+# Packages directories #
+packages
+packaging
+releases
