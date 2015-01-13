@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension version="3.3" type="template" client="site">
 	<name>Help</name>
+	<author>Joomla!</author>
+	<authorEmail>admin@joomla.org</authorEmail>
+	<authorUrl>http://www.joomla.org</authorUrl>
 	<version>2.0.0</version>
 	<creationDate>21 September 2009</creationDate>
-	<author>Chris Davenport</author>
-	<authorEmail>chris.davenport@joomla.org</authorEmail>
-	<authorUrl>http://www.joomla.org</authorUrl>
-	<copyright>Copyright (C) 2009 Chris Davenport</copyright>
+	<copyright>(C) 2009 - 2014 Davenport Technology Services, (C) 2015 Open Source Matters, Inc. All rights reserved.</copyright>
 	<license>GNU/GPL version 2 or later</license>
 	<description>A simple template for rendering Joomla help screens.</description>
 	<files>

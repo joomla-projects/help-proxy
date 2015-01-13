@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="component" version="3.3" method="upgrade">
 	<name>com_help</name>
-	<author>Chris Davenport</author>
-	<copyright>(C) 2009 - 2014 Davenport Technology Services. All rights reserved.</copyright>
+	<author>Joomla!</author>
+	<authorEmail>admin@joomla.org</authorEmail>
+	<authorUrl>http://www.joomla.org</authorUrl>
+	<copyright>(C) 2009 - 2014 Davenport Technology Services, (C) 2015 Open Source Matters, Inc. All rights reserved.</copyright>
 	<creationDate>21 September 2009</creationDate>
 	<license>GNU General Public License version 2 or later</license>
-	<authorEmail>chris.davenport@davenporttechnology.com</authorEmail>
-	<authorUrl>davenporttechnology.com</authorUrl>
 	<version>2.0.0</version>
 	<description>COM_HELP_XML_DESCRIPTION</description>
 	<files folder="site">

@@ -2,7 +2,7 @@
 /**
  * Joomla! Help Screen Proxy
  *
- * @copyright  Copyright (C) 2009 - 2014 Chris Davenport. All rights reserved.
+ * @copyright  Copyright (C) 2009 - 2014 Chris Davenport, (C) 2015 Open Source Matters, Inc. All rights reserved.
  * @license    GNU General Public License version 2 or later; see LICENSE
  */
 
@@ -28,7 +28,7 @@ class HelpViewHelp extends JViewLegacy
 	{
 		$canDo = JHelperContent::getActions('com_help');
 
-		JToolbarHelper::title('Joomla! MediaWiki Proxy', 'joomla help');
+		JToolbarHelper::title(JText::_('COM_HELP'), 'joomla help');
 
 		if ($canDo->get('core.admin'))
 		{
