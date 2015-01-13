@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+	<fieldset name="basic" label="Help Proxy Configuration">
+		<field name="wiki_url" type="url" validate="url" default="https://docs.joomla.org" size="50" label="MediaWiki URL" description="URL for the MediaWiki installation to serve content from" />
+		<field name="max_redirects" type="text" default="5" size="5" label="Maximum number of wiki page redirects" description="The maximum number of redirects the API connector will follow" />
+		<field name="header_level" type="text" default="2" size="5" label="Page title header level (0 = no title)" description="The header tag to use for page headings" />
+		<field name="remove_redlinks" type="radio" class="btn-group btn-group-yesno" default="1" label="Remove links to unwritten pages" description="Flag to remove links to pages that do not exist">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</field>
+		<field name="remove_toc" type="radio" class="btn-group btn-group-yesno" default="0" label="Remove tables of contents" description="Flag to remove the table of contents from a page">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</field>
+	</fieldset>
+	<fieldset name="permissions" label="JCONFIG_PERMISSIONS_LABEL" description="JCONFIG_PERMISSIONS_DESC">
+		<field name="rules" type="rules" label="JCONFIG_PERMISSIONS_LABEL" filter="rules" validate="rules" component="com_help" section="component" />
+	</fieldset>
+</config>

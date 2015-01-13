@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+	<layout title="Joomla! MediaWiki Proxy">
+		<message>Display proxy for requesting data from a MediaWiki installation</message>
+	</layout>
+</metadata>

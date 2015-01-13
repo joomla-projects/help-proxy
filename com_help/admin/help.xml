@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="3.3" method="upgrade">
+	<name>com_help</name>
+	<author>Chris Davenport</author>
+	<copyright>(C) 2009 - 2014 Davenport Technology Services. All rights reserved.</copyright>
+	<creationDate>21 September 2009</creationDate>
+	<license>GNU General Public License version 2 or later</license>
+	<authorEmail>chris.davenport@davenporttechnology.com</authorEmail>
+	<authorUrl>davenporttechnology.com</authorUrl>
+	<version>2.0.0</version>
+	<description>COM_HELP_XML_DESCRIPTION</description>
+	<files folder="site">
+		<filename>controller.php</filename>
+		<filename>help.php</filename>
+		<folder>helpers</folder>
+		<folder>models</folder>
+		<folder>views</folder>
+	</files>
+	<administration>
+		<files folder="admin">
+			<filename>access.xml</filename>
+			<filename>config.xml</filename>
+			<filename>controller.php</filename>
+			<filename>help.php</filename>
+			<folder>language</folder>
+			<folder>views</folder>
+		</files>
+		<menu link="option=com_help">COM_HELP</menu>
+	</administration>
+</extension>
