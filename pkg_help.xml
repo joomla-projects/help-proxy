@@ -10,7 +10,7 @@
 	<author>Joomla!</author>
 	<authorEmail>admin@joomla.org</authorEmail>
 	<authorUrl>http://www.joomla.org</authorUrl>
-	<version>2.0.0</version>
+	<version>2.0.1</version>
 	<license>GNU/GPL Version 2 or later</license>
 	<description>Package containing the help proxy extensions</description>
 	<files folder="packages">
