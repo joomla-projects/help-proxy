@@ -171,6 +171,10 @@ class HelpHelper
 		// Remove links for new image uploads
 		$imgUploadlink = '!<a href="' . $this->wiki_uri->getPath() . '/([^>]+)" class="new"(.+)>(.+)</a>!';
 		$this->page = preg_replace($imgUploadlink, '$3', $this->page);
+		
+		// Remove Special:MyLanguage/ or Special:MyLanguage/: from page links.
+		$specialMyLanguage = '!(Special:MyLanguage\/(:)?)+!';
+		$this->page = preg_replace($specialMyLanguage, '', $this->page);
 
 		// Replace links to other wiki pages with links to the proxy.
 		$uri = JUri::getInstance();
