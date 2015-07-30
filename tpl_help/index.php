@@ -21,7 +21,7 @@ $this->addStylesheet('templates/' . $this->template . '/css/help.css');
 <body><a name="Top" id="Top"></a>
 <jdoc:include type="component"/>
 <hr/>
-<a href="#Top">Top</a>
+<a href="<?php echo JUri::getInstance(); ?>#Top">Top</a>
 <script type="text/javascript">
 	var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
 	document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
