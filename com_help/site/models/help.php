@@ -119,4 +119,26 @@ class HelpModelHelp extends JModelLegacy
 	{
 		return $this->pageName;
 	}
+
+	/**
+	 * Method to auto-populate the model state.
+	 *
+	 * This method should only be called once per instantiation and is designed
+	 * to be called on the first call to the getState() method unless the model
+	 * configuration flag to ignore the request is set.
+	 *
+	 * @return  void
+	 *
+	 * @note    Calling getState in this method will result in recursion.
+	 * @since   2.1
+	 */
+	protected function populateState()
+	{
+		$app = JFactory::getApplication();
+
+		$this->setState('params', JComponentHelper::getParams('com_help'));
+
+		$this->setState('page', $app->input->getString('keyref', 'Main_Page'));
+		$this->setState('lang', $app->input->getString('lang', 'en'));
+	}
 }

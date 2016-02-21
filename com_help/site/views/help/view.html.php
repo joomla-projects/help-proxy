@@ -21,7 +21,7 @@ class HelpViewHelp extends JViewLegacy
 	 * @var    string
 	 * @since  1.0
 	 */
-	public $data;
+	protected $data;
 
 	/**
 	 * Page name
@@ -29,7 +29,7 @@ class HelpViewHelp extends JViewLegacy
 	 * @var    string
 	 * @since  1.0
 	 */
-	public $pageName;
+	protected $pageName;
 
 	/**
 	 * Component params
@@ -37,5 +37,26 @@ class HelpViewHelp extends JViewLegacy
 	 * @var    \Joomla\Registry\Registry
 	 * @since  1.0
 	 */
-	public $params;
+	protected $params;
+
+	/**
+	 * Execute and display a template script.
+	 *
+	 * @param   string  $tpl  The name of the template file to parse; automatically searches through the template paths.
+	 *
+	 * @return  mixed  A string if successful, otherwise a Error object.
+	 *
+	 * @since   2.1
+	 */
+	public function display($tpl = null)
+	{
+		/** @var JObject $state */
+		$state = $this->get('state');
+
+		$this->data     = $this->get('data');
+		$this->pageName = $state->get('page');
+		$this->params   = $state->get('params');
+
+		return parent::display($tpl);
+	}
 }
