@@ -8,6 +8,8 @@
 
 defined('_JEXEC') or die;
 
+use Joomla\Registry\Registry;
+
 /**
  * Help Component Helper Class
  *
@@ -55,22 +57,23 @@ class HelpHelper
 	/**
 	 * Make a call to the remote MediaWiki API.
 	 *
-	 * @param    string     Key reference of help page to retrieve.
-	 * @param    integer    Cache lifetime (in seconds).
+	 * @param   string  $keyref  Key reference of help page to retrieve.
 	 *
-	 * @return    Boolean    True if call was successful; false otherwise.
+	 * @return  boolean
+	 *
+	 * @since   1.0
 	 */
 	public function call($keyref)
 	{
 		// Build the request URI.
-		$query = array(
+		$query = [
 			'action' => 'render',
 			'title'  => $keyref
-		);
+		];
 
 		$this->api_uri->setQuery($this->api_uri->buildQuery($query));
 
-		$this->page = $this->requestData($this->api_uri);
+		$this->page = $this->requestData();
 
 		return true;
 	}
@@ -84,15 +87,13 @@ class HelpHelper
 	 */
 	private function requestData()
 	{
-		$options = new \Joomla\Registry\Registry;
+		$options = new Registry;
 		$options->set('userAgent', 'HelpProxy/2.0');
 		$options->set('follow_location', false);
 
-		$connector = JHttpFactory::getHttp($options);
-
 		try
 		{
-			$response = $connector->get($this->api_uri->toString());
+			$response = JHttpFactory::getHttp($options)->get($this->api_uri->toString());
 		}
 		catch (Exception $e)
 		{

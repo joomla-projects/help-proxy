@@ -26,11 +26,9 @@ class HelpViewHelp extends JViewLegacy
 	 */
 	public function display($tpl = null)
 	{
-		$canDo = JHelperContent::getActions('com_help');
-
 		JToolbarHelper::title(JText::_('COM_HELP'), 'joomla help');
 
-		if ($canDo->get('core.admin'))
+		if (JHelperContent::getActions('com_help')->get('core.admin'))
 		{
 			JToolbarHelper::preferences('com_help');
 		}
