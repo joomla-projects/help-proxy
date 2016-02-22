@@ -2,7 +2,7 @@
 /**
  * Joomla! Help Screen Proxy
  *
- * @copyright  Copyright (C) 2009 - 2014 Chris Davenport, (C) 2015 Open Source Matters, Inc. All rights reserved.
+ * @copyright  Copyright (C) 2009 - 2014 Chris Davenport, (C) 2015 - 2016 Open Source Matters, Inc. All rights reserved.
  * @license    GNU General Public License version 2 or later; see LICENSE
  */
 
@@ -171,7 +171,7 @@ class HelpHelper
 		// Remove links for new image uploads
 		$imgUploadlink = '!<a href="' . $this->wiki_uri->getPath() . '/([^>]+)" class="new"(.+)>(.+)</a>!';
 		$this->page = preg_replace($imgUploadlink, '$3', $this->page);
-		
+
 		// Remove Special:MyLanguage/ or Special:MyLanguage/: from page links.
 		$specialMyLanguage = '!(Special:MyLanguage\/(:)?)+!';
 		$this->page = preg_replace($specialMyLanguage, '', $this->page);
