@@ -7,7 +7,7 @@
 	<copyright>(C) 2009 - 2014 Davenport Technology Services, (C) 2015 - 2016 Open Source Matters, Inc. All rights reserved.</copyright>
 	<creationDate>21 September 2009</creationDate>
 	<license>GNU General Public License version 2 or later</license>
-	<version>2.1.0</version>
+	<version>3.0.0</version>
 	<description>COM_HELP_XML_DESCRIPTION</description>
 	<files folder="site">
 		<filename>controller.php</filename>

@@ -18,14 +18,6 @@ JLoader::register('HelpHelper', dirname(__DIR__) . '/helpers/help.php');
 class HelpModelHelp extends JModelLegacy
 {
 	/**
-	 * Name of wiki page.
-	 *
-	 * @var    string
-	 * @since  2.0
-	 */
-	private $pageName = null;
-
-	/**
 	 * Wiki page data.
 	 *
 	 * @var    string
@@ -55,7 +47,7 @@ class HelpModelHelp extends JModelLegacy
 		$helper = new HelpHelper($params->get('wiki_url', 'https://docs.joomla.org'));
 
 		// Get page from the wiki.
-		$helper->call($this->getState('page'));
+		$helper->call($this->getState('page'), $this->getState('lang'));
 
 		// Follow wiki page redirections.
 		$max = $params->get('max_redirects');
@@ -67,13 +59,12 @@ class HelpModelHelp extends JModelLegacy
 			$i++;
 		}
 
-		// If a non-English page was not found, try to fall back to English.
-		if ($this->getState('lang') != 'en' && $helper->errorCode == 'missingtitle')
+		// If a language coded page was not found, try to fall back to English.
+		if ($helper->getLastResponse()->code !== 200)
 		{
-			if (substr($this->pageName, -3, 1) == '/')
+			if ($this->getState('lang') !== null)
 			{
-				$this->pageName = substr($this->pageName, 0, -3);
-				$helper->call($this->pageName);
+				$helper->call($this->getState('page'));
 
 				// Follow wiki page redirections.
 				$max = $params->get('max_redirects');
@@ -88,7 +79,7 @@ class HelpModelHelp extends JModelLegacy
 		}
 
 		// Add page title.
-		$helper->addTitle($this->pageName, $params->get('header_level'));
+		$helper->addTitle($this->getState('page'), $params->get('header_level'));
 
 		// Remove links to unwritten articles.
 		if ($params->get('remove_redlinks'))
@@ -106,18 +97,6 @@ class HelpModelHelp extends JModelLegacy
 		}
 
 		return $helper->getPage();
-	}
-
-	/**
-	 * Returns the current page name.
-	 *
-	 * @return	string	Wiki page name.
-	 *
-	 * @since   1.0
-	 */
-	public function getPage()
-	{
-		return $this->pageName;
 	}
 
 	/**

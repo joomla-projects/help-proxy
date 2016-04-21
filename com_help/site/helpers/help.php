@@ -18,14 +18,6 @@ use Joomla\Registry\Registry;
 class HelpHelper
 {
 	/**
-	 * Wiki JUri object.  This is the base URI of the wiki (omitting any index.php).
-	 *
-	 * @var    JUri
-	 * @since  2.0
-	 */
-	private $wiki_uri = null;
-
-	/**
 	 * Wiki API JUri object.  This is the base URI of the wiki API.
 	 *
 	 * @var    JUri
@@ -34,12 +26,28 @@ class HelpHelper
 	private $api_uri = null;
 
 	/**
+	 * The last JHttpResponse object from the API call
+	 *
+	 * @var    JHttpResponse
+	 * @since  3.0
+	 */
+	private $lastResponse;
+
+	/**
 	 * Current page for rendering.
 	 *
 	 * @var    string
 	 * @since  2.0
 	 */
 	private $page = null;
+
+	/**
+	 * Wiki JUri object.  This is the base URI of the wiki (omitting any index.php).
+	 *
+	 * @var    JUri
+	 * @since  2.0
+	 */
+	private $wiki_uri = null;
 
 	/**
 	 * Constructor.
@@ -58,12 +66,13 @@ class HelpHelper
 	 * Make a call to the remote MediaWiki API.
 	 *
 	 * @param   string  $keyref  Key reference of help page to retrieve.
+	 * @param   string  $lang    An optional language code for requesting a translated page.
 	 *
 	 * @return  boolean
 	 *
 	 * @since   1.0
 	 */
-	public function call($keyref)
+	public function call($keyref, $lang = null)
 	{
 		// Build the request URI.
 		$query = [
@@ -71,11 +80,29 @@ class HelpHelper
 			'title'  => $keyref
 		];
 
+		// Append the language code if present
+		if ($lang !== null)
+		{
+			$query['title'] .= "/$lang";
+		}
+
 		$this->api_uri->setQuery($this->api_uri->buildQuery($query));
 
 		$this->page = $this->requestData();
 
 		return true;
+	}
+
+	/**
+	 * Get the last response from the API
+	 *
+	 * @return  JHttpResponse
+	 *
+	 * @since   3.0
+	 */
+	public function getLastResponse()
+	{
+		return $this->lastResponse;
 	}
 
 	/**
@@ -99,6 +126,8 @@ class HelpHelper
 		{
 			return '';
 		}
+
+		$this->lastResponse = $response;
 
 		return $response->body;
 	}
@@ -228,4 +257,3 @@ class HelpHelper
 		return $this->page;
 	}
 }
-
