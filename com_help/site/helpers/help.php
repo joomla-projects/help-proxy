@@ -202,6 +202,10 @@ class HelpHelper
 		$imgUploadlink = '!<a href="' . $this->wiki_uri->getPath() . '/([^>]+)" class="new"(.+)>(.+)</a>!';
 		$this->page = preg_replace($imgUploadlink, '$3', $this->page);
 
+		// Remove <translate> </translate> and translation markers from page output.
+		$translationTags = '!(<(\/|)translate>|<!--T:\d+-->)+!';
+		$this->page = preg_replace($translationTags, '', $this->page);
+
 		// Remove Special:MyLanguage/ or Special:MyLanguage/: from page links.
 		$specialMyLanguage = '!(Special:MyLanguage\/(:)?)+!';
 		$this->page = preg_replace($specialMyLanguage, '', $this->page);
